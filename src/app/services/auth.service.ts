@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private url = 'http://localhost:8080/api/auth';
+  private url = 'https://todo-angular-express.herokuapp.com/api/auth';
 
   user!: string;
 

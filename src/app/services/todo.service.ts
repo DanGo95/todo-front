@@ -7,7 +7,7 @@ import { Todo } from '../models/todo.model';
 })
 export class TodoService {
 
-  private url : string = 'http://localhost:8080/api';
+  private url : string = 'https://todo-angular-express.herokuapp.com/api';
 
   constructor( private http : HttpClient ) { }
 
