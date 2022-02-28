@@ -3,6 +3,10 @@
 Aplicación web de notas, la cual cuenta con sistema de login, donde solo se pide email y contraseña. Las notas se pueden crear, editar y eliminar.
 Se puede utilizar como frontend para la API: [Todo-API](https://github.com/DanGo95/todo-api)
 
+## Demo
+
+Ingrese a la dirección: https://todo-angular-express.herokuapp.com/ para ver una demostración del proyecto.
+
 ## Uso del proyecto
 
 ### Pre-requisitos
