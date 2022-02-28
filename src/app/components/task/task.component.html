@@ -1,0 +1,57 @@
+<div class="container m-5 p-2 rounded mx-auto bg-light shadow-lg">
+    <div class="row justify-content-end m-5">
+        <button class="btn btn-outline-danger btn-circle btn-xl" (click)="salir()">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+    </div>
+    <div class="row m-1 p-4">
+        <div class="col">
+            <div class="p-1 h1 text-primary text-center mx-auto display-inline-block">
+                <i class="fa fa-check bg-primary text-white rounded p-2"></i>
+                <u>  to-do list</u>
+            </div>
+        </div>
+    </div>
+    <!--add section-->
+    <div class="row m-1 p-3">
+        <div class="col col-11 mx-auto">
+            <div class="row bg-white rounded shadow-none p-2">
+                <div class="col">
+                    <input #task (keyup.enter)="createTask( task.value )" class="form-control form-control-lg border-0 shadow-none bg-transparent rounded" type="text" placeholder="Add new ...">
+                </div>
+                <div class="col-auto px-0 mx-0 me-2 mx-auto mt-1">
+                    <button (click)="createTask( task.value )" type="button" class="btn btn-primary"> <i class="fas fa-plus-circle"></i> Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-2 mx-4 border-black-25 border-bottom w-75 mx-auto"></div>
+    <!--list of tasks-->
+    <div *ngFor="let task of tasks" class="row mx-1 px-5 pb-3 w-80">
+        <div class="col-auto m-1 p-0 d-flex align-items-center">
+            <h2 class="m-0 p-0 fs-4">
+                <i *ngIf="task.estado" (click)="updateStatus( task )" class="far fa-check-square text-primary" data-toggle="tooltip" data-placement="bottom" title="Mark as todo"></i>
+                <i *ngIf="!task.estado" (click)="updateStatus( task )" class="far fa-square text-primary" data-toggle="tooltip" data-placement="bottom" title="Mark as complete"></i>
+            </h2>
+        </div>
+        <!--task inputs-->
+        <div class="col px-1 m-1 d-flex align-items-center">
+            <input *ngIf="updateRow != task._id" type="text" class="form-control form-control-lg border-0 shadow-none bg-transparent rounded px-3 text-center" readonly value="{{ task.descripcion }}" title="{{ task.descripcion }}" />
+            <input #f (keyup.enter)="updateTask(task, f.value)" type="text" [class.d-none]="!edit || updateRow != task._id" class="form-control form-control-lg border-0 shadow-none rounded px-3 text-center" value="{{ task.descripcion }}" />
+        </div>
+        <!--task actions-->
+        <div class="col-auto m-1 p-0">
+            <div class="row d-inline">
+                <span class="m-0 p-0 px-2">
+                    <i *ngIf="!edit || updateRow != task._id" (click)="editRow(task._id)" class="fa fa-pencil text-info btn m-0 p-0 mt-3" data-toggle="tooltip" data-placement="bottom" title="Edit task"></i>
+                </span>
+                <span class="m-0 p-0 px-2">
+                    <i (click)="updateTask(task, f.value)" [class.d-none]="!edit || updateRow != task._id" class="far fa-save text-info btn m-0 p-0 mt-3" data-toggle="tooltip" data-placement="bottom" title="Update task"></i>
+                </span>
+                <span class="m-0 p-0 px-2">
+                    <i (click)="deleteTask(task._id)" class="fa fa-trash-o text-danger btn m-0 p-0 mt-3" data-toggle="tooltip" data-placement="bottom" title="Delete task"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

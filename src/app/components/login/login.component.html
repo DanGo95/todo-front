@@ -1,0 +1,23 @@
+<div class="overflow-hidden">
+    <div class="row d-flex flex-column min-vh-100 justify-content-center align-items-center">
+        <div class="col-md-8 col-sm-8 col-lg-4 ">
+            <form [formGroup]="form" (ngSubmit)="login()">
+                <p class="fs-4 fw-bold text-uppercase text-center mb-5">iniciar sesión</p>
+                <div class="mb-3">
+                    <input type="email" class="form-control form-control-lg rounded-3 px-4 py-1" formControlName="email" [class.is-invalid]="invalidInput('email')" placeholder="example@example.com">
+                    <p *ngIf="invalidInput('email')" class="text-danger text-center">El correo es obligatorio</p>
+                </div>
+                <div class="mb-3">
+                    <input type="password" name="password" class="form-control form-control-lg rounded-3 px-4 py-1" formControlName="password" [class.is-invalid]="invalidInput('password')" placeholder="******">
+                    <p *ngIf="invalidInput('password')" class="text-danger text-center">El password es obligatorio</p>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <a [routerLink]="['/registro']" class="d-flex justify-content-end purple text-decoration-none">¿No posees cuenta?</a>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary p-3 fw-bold text-uppercase mt-3">iniciar sesión</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
