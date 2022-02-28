@@ -1,6 +1,7 @@
 # Todo-front
 
 Aplicación web de notas, la cual cuenta con sistema de login, donde solo se pide email y contraseña. Las notas se pueden crear, editar y eliminar.
+Se puede utilizar como frontend para la API: [Todo-API](https://github.com/DanGo95/todo-api)
 
 ## Uso del proyecto
 
