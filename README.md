@@ -5,7 +5,7 @@ Se puede utilizar como frontend para la API: [Todo-API](https://github.com/DanGo
 
 ## Demo
 
-Ingrese a la dirección: https://todo-angular-express.herokuapp.com/ para ver una demostración del proyecto.
+Ingrese a la dirección: https://todo-angular-express.herokuapp.com/ para ver una demostración del proyecto. Ingrese como email y password: demo@demo.com
 
 ## Uso del proyecto
 
