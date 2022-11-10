@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Todo } from 'src/app/models/todo.model';
 import { TodoService } from '../../services/todo.service';
 import { AuthService } from '../../services/auth.service';
@@ -14,15 +14,19 @@ export class TaskComponent implements OnInit {
   updateRow : any;
   edit = false;
 
-  constructor( private todoService : TodoService, private auth: AuthService ) { 
+  @ViewChild('task') task!: ElementRef;
+
+  constructor( private todoService : TodoService, private auth: AuthService ) {
     this.getTasks();
   }
 
   ngOnInit(): void {
   }
 
-  
-  
+  private clearInput() {
+    this.task.nativeElement.value = '';
+  }
+
   getTasks() {
     this.todoService.getTasks().subscribe( tasks => {
       this.tasks = tasks;
@@ -33,6 +37,7 @@ export class TaskComponent implements OnInit {
     var newTask = new Todo();
     newTask = { descripcion, estado: false }
     this.todoService.createTask(newTask).subscribe( msg => {
+      this.clearInput();
       this.getTasks();
     });
   }
@@ -60,8 +65,8 @@ export class TaskComponent implements OnInit {
       this.getTasks();
     })
   }
-  
-  // set updateRow to the id 
+
+  // set updateRow to the id
   editRow(id?: string) {
     if (id) {
       this.updateRow = id;
