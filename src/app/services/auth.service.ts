@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private url = 'https://todo-angular-express.herokuapp.com/api/auth';
+  private url = 'https://todo-dcu6.onrender.com/api/auth';
 
   user!: string;
 
